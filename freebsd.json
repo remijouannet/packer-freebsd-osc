@@ -1,0 +1,47 @@
+{
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "./scripts/getsshkey",
+            "destination": "/root/getsshkey"
+        },
+        {
+            "type": "shell",
+            "execute_command": "chmod +x {{ .Path }}; env {{ .Vars }} {{ .Path }}",
+            "script": "./scripts/install.sh"
+        }
+    ],
+    "builders": [
+        {
+            "type": "osc-ebssurrogate",
+            "profile": "default",
+            "region": "eu-west-2",
+            "ssh_username": "root",
+            "instance_type": "tinav4.c4r8",
+            "source_ami": "ami-e2024905",
+            "skip_region_validation": true,
+            "ssh_interface": "public_ip",
+            "endpoints": {
+                "ec2": "https://fcu.eu-west-2.outscale.com"
+            },
+            "ami_virtualization_type": "hvm",
+            "ami_name": "FreeBSD-12.0-{{ isotime \"20060102\"}}",
+            "availability_zone": "eu-west-2a",
+            "launch_block_device_mappings": [
+                {
+            	    "volume_type": "gp2",
+            	    "device_name": "/dev/xvdf",
+            	    "delete_on_termination": true,
+            	    "volume_size": "32"
+                }
+            ],
+            "ami_root_device": {
+                "delete_on_termination": true,
+                "source_device_name": "/dev/xvdf",
+                "device_name": "/dev/sda1",
+                "volume_size": "32",
+                "volume_type": "gp2"
+            }
+        }
+    ]
+}
