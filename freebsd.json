@@ -25,7 +25,7 @@
                 "ec2": "https://fcu.eu-west-2.outscale.com"
             },
             "ami_virtualization_type": "hvm",
-            "ami_name": "FreeBSD-12.0-{{ isotime \"20060102\"}}",
+            "ami_name": "FreeBSD-12.1-{{ isotime \"20060102\"}}",
             "availability_zone": "eu-west-2a",
             "launch_block_device_mappings": [
                 {

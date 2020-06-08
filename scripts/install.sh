@@ -2,11 +2,11 @@
 
 cd /root/
 
-url_image="http://ftp.freebsd.org/pub/FreeBSD/releases/VM-IMAGES/12.0-RELEASE/amd64/Latest/FreeBSD-12.0-RELEASE-amd64.raw.xz"
+url_image="http://ftp.freebsd.org/pub/FreeBSD/releases/VM-IMAGES/12.1-RELEASE/amd64/Latest/FreeBSD-12.1-RELEASE-amd64.raw.xz"
 
 fetch -T 1 $url_image 
 
-unxz -c FreeBSD-12.0-RELEASE-amd64.raw.xz | dd of=/dev/da0 bs=60M status=progress
+unxz -c FreeBSD-12.1-RELEASE-amd64.raw.xz | dd of=/dev/da0 bs=60M status=progress
 
 mount /dev/da0p3 /mnt/
 
