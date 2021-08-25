@@ -18,14 +18,14 @@
             "region": "eu-west-2",
             "ssh_username": "root",
             "instance_type": "tinav4.c4r8",
-            "source_ami": "ami-e2024905",
+            "source_ami": "ami-6b86d73d",
             "skip_region_validation": true,
             "ssh_interface": "public_ip",
             "endpoints": {
                 "ec2": "https://fcu.eu-west-2.outscale.com"
             },
             "ami_virtualization_type": "hvm",
-            "ami_name": "FreeBSD-12.1-{{ isotime \"20060102\"}}",
+            "ami_name": "FreeBSD-13.0-{{ isotime \"20060102\"}}",
             "availability_zone": "eu-west-2a",
             "launch_block_device_mappings": [
                 {
